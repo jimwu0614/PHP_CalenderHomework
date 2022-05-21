@@ -8,12 +8,15 @@
     <title>萬年曆作業</title>
     <link rel="stylesheet" href="./css/style.css">
     <style>
-        
+
     </style>
 </head>
 
 <body>
     <?php
+
+    //傳值
+
     if (isset($_GET['month'])) {
         $month = $_GET['month'];
         $year = $_GET['year'];
@@ -21,6 +24,8 @@
         $month = date('n');
         $year = date("Y");
     }
+
+    //計算上月次月按鈕
 
     switch ($month) {
         case 1:
@@ -42,26 +47,14 @@
             $nextYear = $year;
     }
 
-
-    // echo "要顯示的月份為" . $year . '年' . $month . '月';
-
-
+    //設定月份參數
 
     $firstDay = date("Y-") . $month . "-1";
     $firstWeekday = date("w", strtotime($firstDay));
     $monthDays = date("t", strtotime($firstDay));
     $lastDay = $year . -$month . "-" . $monthDays;
     $today = date("Y-m-d");
-    // echo "月份" . $month;
-    // echo "<br>";
-    // echo "第一天是" . $firstDay;
-    // echo "<br>"; 
-    // echo "第一天是星期" . $firstWeekday;
-    // echo "<br>";
-    // echo "最後一天是" . $lastDay;
-    // echo "<br>";
-    // echo "當月天數共" . $monthDays;
-    // echo "<br>";
+
     ?>
     <p>
     <div class="clock">
@@ -72,7 +65,8 @@
         </iframe>
     </div>
     </p>
-    <div class='nav'>
+    <section>
+        <div class='nav'>
             <span>
                 <a href='calender.php?year=<?= $prevYear; ?>&month=<?= $prevMonth; ?>'><button class="change"> 上一個月</button></a>
             </span>
@@ -83,49 +77,53 @@
                 <a href='calender.php?year=<?= $nextYear; ?>&month=<?= $nextMonth; ?>'><button class="change">下一個月</button></a>
             </span>
         </div>
-    <table>
-        <tr>
-            <td class="header">日</td>
-            <td class="header">一</td>
-            <td class="header">二</td>
-            <td class="header">三</td>
-            <td class="header">四</td>
-            <td class="header">五</td>
-            <td class="header">六</td>
-        </tr>
-        <?php
-        for ($i = 0; $i < 6; $i++) {
-            echo "<tr>";
+        <table>
+            <tr>
+                <td class="header">日</td>
+                <td class="header">一</td>
+                <td class="header">二</td>
+                <td class="header">三</td>
+                <td class="header">四</td>
+                <td class="header">五</td>
+                <td class="header">六</td>
+            </tr>
+            <?php
+            for ($i = 0; $i < 6; $i++) {
+                echo "<tr>";
 
-            for ($j = 0; $j < 7; $j++) {
-                $d = $i * 7 + ($j + 1) - $firstWeekday - 1;
+                for ($j = 0; $j < 7; $j++) {
+                    $d = $i * 7 + ($j + 1) - $firstWeekday - 1;
 
-                if ($d >= 0 && $d < $monthDays) {
-                    $fs = strtotime($firstDay);
-                    $shiftd = strtotime("+$d days", $fs);
-                    $date = date("d", $shiftd);
-                    $w = date("w", $shiftd);
-                    $chktoday = "";
-                    if (date("Y-m-d", $shiftd) == $today) {
-                        $chktoday = 'today';
-                    }
-                    // $date=date("Y-m-d",strtotime("+$d days",strtotime($firstDay)));
-                    if ($w == 0 || $w == 6) {
-                        echo "<td class='weekend $chktoday' >";
+                    if ($d >= 0 && $d < $monthDays) {
+                        $fs = strtotime($firstDay);
+                        $shiftd = strtotime("+$d days", $fs);
+                        $date = date("d", $shiftd);
+                        $w = date("w", $shiftd);
+                        $chktoday = "";
+                        if (date("Y-m-d", $shiftd) == $today) {
+                            $chktoday = 'today';
+                        }
+                        // $date=date("Y-m-d",strtotime("+$d days",strtotime($firstDay)));
+                        if ($w == 0 || $w == 6) {
+                            echo "<td class='weekend $chktoday' >";
+                        } else {
+                            echo "<td class='workday $chktoday'>";
+                        }
+                        echo $date;
+                        echo "</td>";
                     } else {
-                        echo "<td class='workday $chktoday'>";
+                        echo "<td></td>";
                     }
-                    echo $date;
-                    echo "</td>";
-                } else {
-                    echo "<td></td>";
                 }
+                echo "</tr>";
             }
-            echo "</tr>";
-        }
 
-        ?>
-    </table>
+            ?>
+        </table>
+    </section>
+    <footer>
+    123123
+    </footer>
 </body>
 
 </html>
