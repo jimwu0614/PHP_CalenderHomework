@@ -24,10 +24,13 @@ table td {
     background: #ef6eae;
 }
 
+.change{
+    width: 100px;
+}
 
 .workday {
-    background: rgb(236, 236, 236);
-    background: linear-gradient(0deg, rgb(167, 136, 216) 0%, rgba(129, 5, 240) 100%);
+
+    background: linear-gradient(0deg, rgba(167, 136, 216, 0.5) 0%, rgba(129, 5, 240, 0.5) 100%);
     opacity: 1 ;
     border: none;
 

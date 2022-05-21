@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>萬年曆作業</title>
     <link rel="stylesheet" href="./css/style.css">
-
+    <style>
+        
+    </style>
 </head>
 
 <body>
@@ -72,13 +74,13 @@
     </p>
     <div class='nav'>
             <span>
-                <a href='calender.php?year=<?= $prevYear; ?>&month=<?= $prevMonth; ?>'>上一個月</a>
+                <a href='calender.php?year=<?= $prevYear; ?>&month=<?= $prevMonth; ?>'><button class="change"> 上一個月</button></a>
             </span>
             <span>
                 <?= $year . '年' . $month . '月'; ?>
             </span>
             <span>
-                <a href='calender.php?year=<?= $nextYear; ?>&month=<?= $nextMonth; ?>'>下一個月</a>
+                <a href='calender.php?year=<?= $nextYear; ?>&month=<?= $nextMonth; ?>'><button class="change">下一個月</button></a>
             </span>
         </div>
     <table>
