@@ -4,9 +4,44 @@
 
 body {
     display: flex;
+    flex-wrap: wrap;
     text-align: center;
     background: linear-gradient(45deg,#5433, #5fb3ee ) no-repeat fixed;
 }
+
+.topic{
+    margin-top: 50px;
+    width: 100%;
+    position: relative;
+    font-weight: 900;
+    -webkit-box-reflect: below -12px linear-gradient(transparent, rgba(0, 0, 0, 0.2));
+}
+
+.topic span{
+    position: relative;
+    display: inline-block;
+    font-size: 3rem;
+    animation: animate 1s ease-in-out infinite;
+    animation-delay: calc(.1s*var(--i));
+    color: #5CA17C;
+    background: -webkit-linear-gradient( #26BDA6, #FF9F65, #DED37E);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+@keyframes animate{
+    0%{
+        transform: translateY(0px);
+    }
+    20%{
+        transform: translateY(-24px);
+    }
+    40%, 100%{
+        transform: translateY(0px);
+    }
+}
+
 
 .content{
     width: calc(100% / 3);

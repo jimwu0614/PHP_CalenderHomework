@@ -13,6 +13,18 @@
 </head>
 
 <body>
+    <div class="topic">
+        <span style="--i:1">用</span> 
+        <span style="--i:2">迴</span> 
+        <span style="--i:3">圈</span> 
+        <span style="--i:4">方</span> 
+        <span style="--i:5">法</span> 
+        <span style="--i:6">製</span> 
+        <span style="--i:7">作</span> 
+        <span style="--i:8">萬</span> 
+        <span style="--i:9">年</span> 
+        <span style="--i:10">曆</span> 
+    </div>
     <?php
 
     //傳值
