@@ -3,11 +3,36 @@
 }
 
 body {
+    display: flex;
     text-align: center;
-    background-image: url(../img/month<?= rand (1, 24)?>.jpg)
+    background: linear-gradient(45deg,#5433, #5fb3ee ) no-repeat fixed;
 }
 
+.content{
+    width: calc(100% / 3);
+}
 
+.pic{
+    width: calc(100% / 3);
+}
+
+p>img{
+    width: 100%;
+    height: 100%;
+}
+
+.header{
+    display: flex;
+    margin-left: 35px;
+}
+.headerItem{
+    margin: 0;
+    padding-top: 20px;
+    width: 80px;
+    height: 80px;
+    font-size: 35px;
+    text-shadow: 0.1em 0.1em 0.2em gray;
+}
 table {
     margin: 10px auto;
     border-collapse: collapse;
@@ -82,10 +107,4 @@ table td {
     font-style: italic;
     text-decoration: underline;
     color: crimson;
-}
-footer{
-    display: block;
-    width: 100%;
-    height: 30vh;
-    background-image: url(/img/month2.jpg);
 }

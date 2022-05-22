@@ -54,76 +54,115 @@
     $monthDays = date("t", strtotime($firstDay));
     $lastDay = $year . -$month . "-" . $monthDays;
     $today = date("Y-m-d");
+    $lastWeekday = date("w", strtotime($lastDay));
+    $dateHouse = [];
+    $sday = date("md", strtotime($today));
 
     ?>
-    <p>
-    <div class="clock">
-        <h2 id="location">
-            Taipei, Taiwan
-        </h2>
-        <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=large&timezone=Asia%2FTaipei" width="100%" height="140" frameborder="0" seamless>
-        </iframe>
-    </div>
+    <!-- 左圖 -->
+    <p class="pic">
+        <img src="./img/month<?= rand(01, 24) ?>.jpg" alt="">
     </p>
-    <section>
-        <div class='nav'>
-            <span>
-                <a href='calender.php?year=<?= $prevYear; ?>&month=<?= $prevMonth; ?>'><button class="change"> 上一個月</button></a>
-            </span>
-            <span>
-                <?= $year . '年' . $month . '月'; ?>
-            </span>
-            <span>
-                <a href='calender.php?year=<?= $nextYear; ?>&month=<?= $nextMonth; ?>'><button class="change">下一個月</button></a>
-            </span>
+    <!-- 網頁主體 -->
+    <span class="content">
+        <p>
+        <div class="clock">
+            <h2 id="location">
+                Taipei, Taiwan
+            </h2>
+            <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=en&size=large&timezone=Asia%2FTaipei" width="100%" height="140" frameborder="0" seamless>
+            </iframe>
         </div>
-        <table>
-            <tr>
-                <td class="header">日</td>
-                <td class="header">一</td>
-                <td class="header">二</td>
-                <td class="header">三</td>
-                <td class="header">四</td>
-                <td class="header">五</td>
-                <td class="header">六</td>
-            </tr>
-            <?php
-            for ($i = 0; $i < 6; $i++) {
-                echo "<tr>";
+        </p>
+        <section>
+            <div class='nav'>
+                <span>
+                    <a href='calender.php?year=<?= $prevYear; ?>&month=<?= $prevMonth; ?>'><button class="change"> 上一個月</button></a>
+                </span>
+                <span>
+                    <?= $year . '年' . $month . '月'; ?>
+                </span>
+                <span>
+                    <a href='calender.php?year=<?= $nextYear; ?>&month=<?= $nextMonth; ?>'><button class="change">下一個月</button></a>
+                </span>
+            </div>
+            <div class="header">
+                <div class='headerItem'>日</div>
+                <div class='headerItem'>一</div>
+                <div class='headerItem'>二</div>
+                <div class='headerItem'>三</div>
+                <div class='headerItem'>四</div>
+                <div class='headerItem'>五</div>
+                <div class='headerItem'>六</div>
+            </div>
 
-                for ($j = 0; $j < 7; $j++) {
-                    $d = $i * 7 + ($j + 1) - $firstWeekday - 1;
 
-                    if ($d >= 0 && $d < $monthDays) {
-                        $fs = strtotime($firstDay);
-                        $shiftd = strtotime("+$d days", $fs);
-                        $date = date("d", $shiftd);
-                        $w = date("w", $shiftd);
-                        $chktoday = "";
-                        if (date("Y-m-d", $shiftd) == $today) {
-                            $chktoday = 'today';
-                        }
-                        // $date=date("Y-m-d",strtotime("+$d days",strtotime($firstDay)));
-                        if ($w == 0 || $w == 6) {
-                            echo "<td class='weekend $chktoday' >";
+
+            <table>
+                <?php
+                // foreach ($dateHouse as $k => $day) {
+
+                //     if ($day == $today) {
+                //         $hol = 'today';
+                //     } else if ($k % 7 == 0 || $k % 7 == 6) {
+                //         $hol = 'weekend';
+                //     } else if ($sday = date("md", strtotime($day))) {
+                //         $hol = 'sday';
+                //     } else {
+                //         $hol = '';
+                //     }
+
+                //     // $hol = ($k % 7 == 0 || $k % 7 == 6) ? 'weekend' : ""; //判定是否為假日
+                //     if (!empty($day)) {
+                //         $sday = date("md", strtotime($day)); //每一天都產生一個$sday變數
+                //         $dayFormat = date("j", strtotime($day));
+                //         echo "<div class='{$hol}'><div class='festday{$sday}'>{$dayFormat}<br></div></div>";
+                //     } else {
+                //         echo "<div class='{$hol}'></div>";
+                //     }
+                // }
+
+
+
+                for ($i = 0; $i < 6; $i++) {
+                    echo "<tr>";
+
+                    for ($j = 0; $j < 7; $j++) {
+                        $d = $i * 7 + ($j + 1) - $firstWeekday - 1;
+
+                        if ($d >= 0 && $d < $monthDays) {
+                            $fs = strtotime($firstDay);
+                            $shiftd = strtotime("+$d days", $fs);
+                            $date = date("d", $shiftd);
+                            $w = date("w", $shiftd);
+                            $chktoday = "";
+                            if (date("Y-m-d", $shiftd) == $today) {
+                                $chktoday = 'today';
+                            }
+                            // $date=date("Y-m-d",strtotime("+$d days",strtotime($firstDay)));
+                            if ($w == 0 || $w == 6) {
+                                echo "<td class='weekend $chktoday' >";
+                            } else {
+                                echo "<td class='workday $chktoday'>";
+                            }
+                            echo $date;
+                            echo "</td>";
                         } else {
-                            echo "<td class='workday $chktoday'>";
+                            echo "<td></td>";
                         }
-                        echo $date;
-                        echo "</td>";
-                    } else {
-                        echo "<td></td>";
                     }
+                    echo "</tr>";
                 }
-                echo "</tr>";
-            }
 
-            ?>
-        </table>
-    </section>
-    <footer>
-    123123
-    </footer>
+                ?>
+            </table>
+        </section>
+    </span>
+    <!-- 右圖 -->
+    <p class="pic">
+        <img src="./img/month<?= rand(01, 24) ?>.jpg" alt="">
+    </p>
+
 </body>
 
 </html>
