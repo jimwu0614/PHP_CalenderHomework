@@ -96,7 +96,7 @@
                             <a href='calenderLoop.php?year=<?= $prevYear; ?>&month=<?= $prevMonth; ?>'><i class="fa-solid fa-chevron-left"></i></a>
                         </span>
                         <span>
-                            <?= $year . '年' . $month . '月'; ?>
+                        <a href="calenderLoop.php" ><span class="now"><?= $year . '年' . $month . '月'; ?></span></a>
                         </span>
                         <span>
                             <a href='calenderLoop.php?year=<?= $nextYear; ?>&month=<?= $nextMonth; ?>'><i class="fa-solid fa-chevron-right"></i></a>
@@ -149,6 +149,9 @@
 
                         ?>
                     </table>
+                    <footer>
+                        <a href="./index.php">回上一頁</a>
+                    </footer>
                 </div>
             </div>
         </div>

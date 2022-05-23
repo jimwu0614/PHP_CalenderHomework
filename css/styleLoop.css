@@ -59,6 +59,7 @@ section::after{
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    margin-bottom: 3rem;
 }
 
 .topic{
@@ -101,11 +102,14 @@ section::after{
     font-size: 40px;
 }
 
-
+.now>{
+    text-decoration: none;
+   background-color: #31ff38;
+}
 
 .header{
     display: flex;
-    margin: 10px 150px;
+    margin: 10px 300px;
 }
 
 .headerItem{
