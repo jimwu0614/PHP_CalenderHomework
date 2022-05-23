@@ -7,9 +7,9 @@ $pw=$_POST['pw'];
 
 
 if ($acc!=$default_acc || $pw!=$default_pw) {    
-    header("location:calender02.php?acc=$acc");    
+    header("location:calenderArray.php?acc=$acc");    
 }else{
-    header("location:calender.php?acc=$acc");    
+    header("location:calenderLoop.php?acc=$acc");    
 }
 
 

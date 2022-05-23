@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>線上月曆</title>
-    <link rel="stylesheet" href="./css/style2.css">
+    <link rel="stylesheet" href="./css/styleArray.css">
 </head>
 
 <body>
@@ -14,8 +14,8 @@
 
     <div class="topic">
         <span style="--i:1">用</span> 
-        <span style="--i:2">迴</span> 
-        <span style="--i:3">圈</span> 
+        <span style="--i:2">陣</span> 
+        <span style="--i:3">列</span> 
         <span style="--i:4">方</span> 
         <span style="--i:5">法</span> 
         <span style="--i:6">製</span> 
