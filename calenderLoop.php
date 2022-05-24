@@ -96,7 +96,7 @@
                             <a href='calenderLoop.php?year=<?= $prevYear; ?>&month=<?= $prevMonth; ?>'><i class="fa-solid fa-chevron-left"></i></a>
                         </span>
                         <span>
-                        <a href="calenderLoop.php" ><span class="now"><?= $year . '年' . $month . '月'; ?></span></a>
+                        <a href="calenderLoop.php" style="text-decoration:none;"><?= $year . '年' . $month . '月'; ?></a>
                         </span>
                         <span>
                             <a href='calenderLoop.php?year=<?= $nextYear; ?>&month=<?= $nextMonth; ?>'><i class="fa-solid fa-chevron-right"></i></a>

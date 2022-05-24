@@ -102,9 +102,9 @@ section::after{
     font-size: 40px;
 }
 
-.now>{
+.now>span>a:visited{
     text-decoration: none;
-   background-color: #31ff38;
+
 }
 
 .header{

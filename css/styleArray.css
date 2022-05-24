@@ -1,86 +1,281 @@
-.topic{
-    margin-top: 50px;
+* {
+    box-sizing: border-box;
+    text-align: center;
+
+}
+
+body {
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/50598/concrete-wall-background.jpg) center center fixed;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    margin: 10px;
+    padding: 0;
+}
+
+.wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.topic {
+    margin: 50px auto;
+    /* margin-left: 55vh; */
     width: 100%;
     position: relative;
     font-weight: 900;
     -webkit-box-reflect: below -12px linear-gradient(transparent, rgba(0, 0, 0, 0.2));
 }
 
-.topic span{
+.topic span {
     position: relative;
     display: inline-block;
     font-size: 3rem;
     animation: animate 1s ease-in-out infinite;
     animation-delay: calc(.1s*var(--i));
     color: #5CA17C;
-    background: -webkit-linear-gradient( #26BDA6, #FF9F65, #DED37E);
+    background: -webkit-linear-gradient(#26BDA6, #FF9F65, #DED37E);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
 }
 
-@keyframes animate{
-    0%{
+@keyframes animate {
+    0% {
         transform: translateY(0px);
     }
-    20%{
+
+    20% {
         transform: translateY(-24px);
     }
-    40%, 100%{
+
+    40%,
+    100% {
         transform: translateY(0px);
     }
 }
 
+.input {
+    width: calc(100%/3);
+    backdrop-filter: blur(5px);
+    background-color: rgba(189, 195, 199, 0.2);
+    border-radius: 30px;
+    padding-top: 3rem;
+}
 
-.table {
+
+
+
+.typein {
+    margin-top: 50px;
+    text-align: center;
+    font-size: 50px;
+    background: linear-gradient(to right, rgb(11, 237, 245) 20%, rgb(255, 0, 0) 40%, #FF0 60%, rgb(11, 237, 245) 80%);
+    background-size: 200% auto;
+
+    color: #000;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: shine 3s linear infinite;
+
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.button>p>input{
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.blackboard {
+    position: relative;
+    width: calc(100%/3);
+    margin: 7% 0;
+    border: tan solid 12px;
+    border-top: #bda27e solid 12px;
+    border-left: #b19876 solid 12px;
+    border-bottom: #c9ad86 solid 12px;
+    box-shadow: 0px 0px 6px 5px rgba(58, 18, 13, 0), 0px 0px 0px 2px #c2a782, 0px 0px 0px 4px #a58e6f, 3px 4px 8px 5px rgba(0, 0, 0, 0.5);
+    /* background-image: radial-gradient( circle at left 30%, rgba(34, 34, 34, 0.3), rgba(34, 34, 34, 0.3) 80px, rgba(34, 34, 34, 0.5) 100px, rgba(51, 51, 51, 0.5) 160px, rgba(51, 51, 51, 0.5)), linear-gradient( 215deg, transparent, transparent 100px, #222 260px, #222 320px, transparent), radial-gradient( circle at right, #111, rgba(51, 51, 51, 1)); */
+    background-color: #333;
+}
+
+.img {
+    width: calc(100%/3);
+}
+
+.img>img {
+    width: 100%;
+    height: 100%;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 50px;
+    font-size: 25px;
+    margin-top: 15px;
+}
+
+.nav>span {
+    width: 150px;
+}
+
+.nav>span>a:visited {
+    color: azure;
+
+}
+
+
+.calender {
     width: 560px;
     height: 560px;
     display: flex;
     flex-wrap: wrap;
     align-content: baseline;
-    margin-left: 1px;
-    margin-top: 1px;
+    /* margin-left: 1px; */
+    margin: 5px auto;
 }
 
-.table div {
+.calender div {
     display: inline-block;
-    width: 80px;
-    height: 80px;
+    width: 81px;
+    height: 100px;
     border: 1px solid #999;
     box-sizing: border-box;
     margin-left: -1px;
     margin-top: -1px;
 }
 
-.table div.header {
+.calender div.header {
     background: black;
     color: white;
     height: 32px;
     ;
 }
 
-.weekend {
-    background: pink;
+.header {
+    vertical-align: middle;
+    font-family: 'Permanent Marker', cursive;
+    font-size: 1.6em;
+    color: rgba(238, 238, 238, 0.7);
 }
 
-.workday {
-    background: white;
+.weekend {
+    background: pink;
+    font-size: 30px;
+}
+
+.sday {
+    color: azure;
+    font-size: 30px;
 }
 
 .today {
-    background: lightseagreen;
+    background: rgb(154, 32, 178);
+    font-size: 30px;
 }
 
-.wrapper {
-    width: 580px;
-    margin: 2rem auto;
+
+
+.festday0816::after {
+    content: "三上 悠亞";
+    font-size: 15px;
+    color: rgb(82, 235, 21);
+    background-color: rgb(224, 70, 91);
 }
 
-.nav {
-    display: flex;
-    justify-content: space-between;
+.festday0724::after {
+    content: "松本 いちか";
+    font-size: 15px;
+    color: rgb(82, 235, 21);
+    background-color: rgb(224, 70, 91);
 }
 
-.festday0518::after{
-    content: "123";
+.festday0721::after {
+    content: "篠田 ゆう";
+    font-size: 15px;
+    color: rgb(82, 235, 21);
+    background-color: rgb(224, 70, 91);
 }
+
+.festday0321::after {
+    content: "安齋 らら";
+    font-size: 15px;
+    color: rgb(82, 235, 21);
+    background-color: rgb(224, 70, 91);
+}
+
+.festday0406::after {
+    content: "有栖花 あか";
+    font-size: 15px;
+    color: rgb(82, 235, 21);
+    background-color: rgb(224, 70, 91);
+}
+ 
+.festday0424::after {
+    content: "河北 彩花";
+    font-size: 15px;
+    color: rgb(82, 235, 21);
+    background-color: rgb(224, 70, 91);
+}
+ 
+.festday0521::after {
+    content: "姫咲 はな";
+    font-size: 15px;
+    color: rgb(82, 235, 21);
+    background-color: rgb(224, 70, 91);
+}
+ 
+.festday1111::after {
+    content: "七ツ森 りり";
+    font-size: 15px;
+    color: rgb(82, 235, 21);
+    background-color: rgb(224, 70, 91);
+}
+ 
+.festday0318::after {
+    content: "深田 えいみ";
+    font-size: 15px;
+    color: rgb(82, 235, 21);
+    background-color: rgb(224, 70, 91);
+}
+ 
+.festday0920::after {
+    content: "田中 ねね";
+    font-size: 15px;
+    color: rgb(82, 235, 21);
+    background-color: rgb(224, 70, 91);
+}
+ 
+.festday0513::after {
+    content: "高橋 しょう子";
+    font-size: 15px;
+    color: rgb(82, 235, 21);
+    background-color: rgb(224, 70, 91);
+}
+ 
+.festday1203::after {
+    content: "桜空 もも";
+    font-size: 15px;
+    color: rgb(82, 235, 21);
+    background-color: rgb(224, 70, 91);
+} 
+ 
+.festday1130::after {
+    content: "神宮寺 奈緒";
+    font-size: 15px;
+    color: rgb(82, 235, 21);
+    background-color: rgb(224, 70, 91);
+}
+ 
