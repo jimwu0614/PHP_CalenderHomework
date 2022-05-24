@@ -177,6 +177,7 @@
                 }
                 ?>
             </div>
+            <p><a href="./index.php" style="color: #fff; font-size:20px">回上一頁</a></p>
         </div>
         <!-- 圖片 -->
         <aside class="img">
